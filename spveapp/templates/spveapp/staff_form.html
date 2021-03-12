@@ -1,0 +1,29 @@
+{% extends 'spveapp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    {{ staff.firstname|as_crispy_field }}
+    {{ staff.surname|as_crispy_field }}
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ staff.id_number|as_crispy_field }}
+        </div>
+        <div class="col-md-6">
+            {{ staff.mobile_number|as_crispy_field }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ staff.gender|as_crispy_field }}
+        </div>
+        <div class="col-md-6">
+            {{ staff.position|as_crispy_field }}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success"><i class="fas fa-database"></i> Submit</button>
+</form>
+{% endblock %}
