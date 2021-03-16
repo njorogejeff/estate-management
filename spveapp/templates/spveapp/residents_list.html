@@ -2,4 +2,31 @@
 
 {% block content %}
 <p>SPRING VIEW ESTATE RESIDENTS</p>
+    <table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+    <tr>
+        <td>First Name</td>
+        <td>Surname</td>
+        <td>Gender</td>
+        <td>House No.</td>
+        <td></td>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for resident in residents_list %}
+        <tr>
+        <td>{{ resident.firstname }}</td>
+        <td>{{ resident.surname }}</td>
+        <td>{{ resident.gender }}</td>
+        <td>{{ resident.hse_number }}</td>
+        <td>
+            <a class="btn text-secondary px-0">
+                <i class="fa fa-edit fa-lg"></i>
+            </a>
+        </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
 {% endblock %}

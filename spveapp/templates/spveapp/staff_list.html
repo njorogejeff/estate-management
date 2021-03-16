@@ -3,4 +3,35 @@
 
 {% block content %}
 <p>SPRING VIEW ESTATE STAFF</p>
+    <table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+    <tr>
+        <td>Position</td>
+        <td>Surname</td>
+        <td>First Name</td>
+        <td>Gender</td>
+        <td>ID No.</td>
+        <td>Mobile No.</td>
+        <td></td>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for staff in staff_list %}
+        <tr>
+        <td>{{ staff.position }}</td>
+        <td>{{ staff.surname }}</td>
+        <td>{{ staff.firstname }}</td>
+        <td>{{ staff.gender }}</td>
+        <td>{{ staff.id_number }}</td>
+        <td>{{ staff.mobile_number }}</td>
+        <td>
+            <a href="" class="btn text-secondary px-0">
+                <i class="fa fa-edit fa-lg"></i>
+            </a>
+        </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
 {% endblock %}

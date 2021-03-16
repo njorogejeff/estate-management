@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import OwnerForm, ResidentForm, StaffForm
+from .models import HseOwner, Occupants, Staff
 
 
 # Create your views here.
@@ -8,15 +9,18 @@ def index(request):
 
 
 def owners_list(request):
-    return render(request, 'spveapp/houseowners_list.html')
+    context = {'owners_list': HseOwner.objects.all()}
+    return render(request, 'spveapp/houseowners_list.html', context)
 
 
 def residents_list(request):
-    return render(request, 'spveapp/residents_list.html')
+    context = {'residents_list': Occupants.objects.all()}
+    return render(request, 'spveapp/residents_list.html', context)
 
 
 def staff_list(request):
-    return render(request, 'spveapp/staff_list.html')
+    context = {'staff_list': Staff.objects.all()}
+    return render(request, 'spveapp/staff_list.html', context)
 
 
 # Spring View Estate Registration Forms
