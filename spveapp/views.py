@@ -1,10 +1,14 @@
-from django.shortcuts import render
-from .forms import HseOwnerForm, ResidentForm, StaffForm
+from django.shortcuts import render, redirect
+from .forms import OwnerForm, ResidentForm, StaffForm
 
 
 # Create your views here.
-def hseowners_list(request):
-    return render(request, 'spveapp/hseowners_list.html')
+def index(request):
+    return render(request, 'spveapp/index.html')
+
+
+def owners_list(request):
+    return render(request, 'spveapp/houseowners_list.html')
 
 
 def residents_list(request):
@@ -16,16 +20,34 @@ def staff_list(request):
 
 
 # Spring View Estate Registration Forms
-def hseowner_form(request):
-    hseowner = HseOwnerForm()
-    return render(request, 'spveapp/hseowner_form.html', {'hseowner': hseowner})
+def owner_form(request):
+    if request.method == 'GET':
+        oform = OwnerForm()
+        return render(request, 'spveapp/houseowner_form.html', {'oform': oform})
+    else:
+        oform = OwnerForm(request.POST)
+        if oform.is_valid():
+            oform.save()
+        return redirect('/houseowners')
 
 
-def residents_form(request):
-    residents = ResidentForm()
-    return render(request, 'spveapp/residents_form.html', {'residents': residents})
+def resident_form(request):
+    if request.method == 'GET':
+        rform = ResidentForm()
+        return render(request, 'spveapp/resident_form.html', {'rform': rform})
+    else:
+        rform = ResidentForm(request.POST)
+        if rform.is_valid():
+            rform.save()
+        return redirect('/residents')
 
 
 def staff_form(request):
-    staff = StaffForm()
-    return render(request, 'spveapp/staff_form.html', {'staff': staff})
+    if request.method == 'GET':
+        sform = StaffForm()
+        return render(request, 'spveapp/staff_form.html', {'sform': sform})
+    else:
+        sform = StaffForm(request.POST)
+        if sform.is_valid():
+            sform.save()
+        return redirect('/staff')

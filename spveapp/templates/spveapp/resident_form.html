@@ -1,0 +1,22 @@
+{% extends 'spveapp/base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <p>SPRING VIEW ESTATE RESIDENT REGISTRATION FORM</p>
+    <form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    {{ rform.firstname|as_crispy_field }}
+    {{ rform.surname|as_crispy_field }}
+    <div class="row">
+        <div class="col-md-6">
+            {{ rform.gender|as_crispy_field }}
+        </div>
+        <div class="col-md-6">
+            {{ rform.hse_number|as_crispy_field }}
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success"><i class="fa fa-database"></i> Submit</button>
+    </form>
+{% endblock %}

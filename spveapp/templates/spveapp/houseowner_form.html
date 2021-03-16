@@ -3,26 +3,26 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <p>SPRING VIEW ESTATE STAFF REGISTRATION FORM</p>
+    <p>SPRING VIEW ESTATE HOUSE OWNER REGISTRATION FORM</p>
     <form action="" method="post" autocomplete="off">
     {% csrf_token %}
-    {{ sform.firstname|as_crispy_field }}
-    {{ sform.surname|as_crispy_field }}
+    {{ oform.firstname|as_crispy_field }}
+    {{ oform.surname|as_crispy_field }}
     <div class="row">
         <div class="col-md-6">
-            {{ sform.gender|as_crispy_field }}
+            {{ oform.gender|as_crispy_field }}
         </div>
         <div class="col-md-6">
-            {{ sform.position|as_crispy_field }}
+            {{ oform.hse_number|as_crispy_field }}
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            {{ sform.id_number|as_crispy_field }}
+            {{ oform.id_number|as_crispy_field }}
         </div>
         <div class="col-md-6">
-            {{ sform.mobile_number|as_crispy_field }}
+            {{ oform.mobile_number|as_crispy_field }}
         </div>
     </div>
 

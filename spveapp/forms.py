@@ -2,7 +2,7 @@ from django import forms
 from .models import HseOwner, Occupants, Staff
 
 
-class HseOwnerForm(forms.ModelForm):
+class OwnerForm(forms.ModelForm):
 
     class Meta:
         model = HseOwner
@@ -15,7 +15,7 @@ class HseOwnerForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        super(HseOwnerForm, self).__init__(*args, *kwargs)
+        super(OwnerForm, self).__init__(*args, *kwargs)
         self.fields['gender'].empty_label = "Select"
         self.fields['hse_number'].empty_label = "Select"
 
